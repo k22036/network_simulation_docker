@@ -1,15 +1,14 @@
-version: "3"
 services:
   host1:
     image: alpine
-    command: sh -c "sleep infinity"
+    command: [ sh, -c, "sleep infinity" ]
     networks:
       mynet:
         ipv4_address: 172.28.0.2
 
   host2:
     image: alpine
-    command: sh -c "sleep infinity"
+    command: [ sh, -c, "sleep infinity" ]
     networks:
       mynet:
         ipv4_address: 172.28.0.3
