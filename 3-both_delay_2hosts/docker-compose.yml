@@ -1,0 +1,25 @@
+services:
+  host1:
+    image: alpine
+    cap_add:
+      - NET_ADMIN
+    command: [ sh, -c, "apk add iproute2 && tc qdisc add dev eth0 root netem delay 50ms && sleep infinity" ]
+    networks:
+      mynet:
+        ipv4_address: 172.28.0.2
+
+  host2:
+    image: alpine
+    cap_add:
+      - NET_ADMIN
+    command: [ sh, -c, "apk add iproute2 && tc qdisc add dev eth0 root netem delay 50ms && sleep infinity" ]
+    networks:
+      mynet:
+        ipv4_address: 172.28.0.3
+
+networks:
+  mynet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
