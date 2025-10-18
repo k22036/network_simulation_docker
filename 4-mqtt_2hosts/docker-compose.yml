@@ -1,0 +1,57 @@
+services:
+  broker:
+    image: eclipse-mosquitto:2
+    container_name: mqtt_broker
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./broker/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./broker/data:/mosquitto/data
+      - ./broker/log:/mosquitto/log
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.0.2
+
+  publisher:
+    build: ./publisher
+    container_name: mqtt_publisher
+    environment:
+      - MQTT_BROKER_HOST=172.28.0.2
+      - MQTT_BROKER_PORT=1883
+      - MQTT_TOPIC=test/topic
+    depends_on:
+      - broker
+    volumes:
+      - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.1
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+
+  subscriber:
+    build: ./subscriber
+    container_name: mqtt_subscriber
+    environment:
+      - MQTT_BROKER_HOST=172.28.0.2
+      - MQTT_BROKER_PORT=1883
+      - MQTT_TOPIC=test/topic
+    depends_on:
+      - broker
+    volumes:
+      - ./subscriber/output/latency_log:/app/output/latency_log
+      - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.2
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+
+networks:
+  mqtt_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
