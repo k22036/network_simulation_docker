@@ -6,6 +6,8 @@ IP=$(hostname -I | awk '{print $1}')
 OUTPUT_FILE="/app/output/tcp_dump/${IP}.pcap"
 # 監視対象のポート
 CAPTURE_PORT=1883
+LATENCY_LOG_DIR="/app/output/latency_log"
+LATENCY_LOG_FILE="${LATENCY_LOG_DIR}/${IP}.txt"
 
 # --- スクリプト本体 ---
 echo "Starting packet capture to ${OUTPUT_FILE}..."
@@ -20,6 +22,7 @@ TCPDUMP_PID=$!
 trap 'echo "Stopping tcpdump (PID: ${TCPDUMP_PID})..."; kill ${TCPDUMP_PID}' SIGINT SIGTERM
 
 echo "Starting subscriber.py..."
+rm ${LATENCY_LOG_FILE}
 # Pythonスクリプトを実行。これが終了するまでシェルは待機する
 python -u subscriber.py
 

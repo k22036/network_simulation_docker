@@ -26,7 +26,7 @@ MQTT_BROKER_HOST = os.getenv("MQTT_BROKER_HOST", "broker")
 MQTT_BROKER_PORT = int(os.getenv("MQTT_BROKER_PORT", 1883))
 MQTT_TOPIC = os.getenv("MQTT_TOPIC", "test/topic")
 CUR_IP = get_ip()
-OUTPUT_FILE_NAME = f"output/latency_log/{CUR_IP.replace('.', '_')}.txt"
+OUTPUT_FILE_NAME = f"output/latency_log/{CUR_IP}.txt"
 
 
 def on_connect(client, userdata, flags, rc):
