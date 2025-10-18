@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 # --- 設定 ---
 IP=$(hostname -I | awk '{print $1}')

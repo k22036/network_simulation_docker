@@ -39,8 +39,16 @@ cluc_total_bytes/subscriber:
 cluc_total_bytes/publisher:
 	$(CLUC_TOTAL_BYTES_SCRIPT) $(PUB_CAP_DIR)
 
-run/with_cloud: publish chmod sleep stop cluc_avg_latency cluc_total_bytes/subscriber cluc_total_bytes/publisher
-	@echo "Run with cloud completed."
+run/with_cloud:
+	set -e; \
+	$(MAKE) publish; \
+	$(MAKE) chmod; \
+	$(MAKE) sleep; \
+	$(MAKE) stop; \
+	$(MAKE) cluc_avg_latency; \
+	$(MAKE) cluc_total_bytes/subscriber; \
+	$(MAKE) cluc_total_bytes/publisher; \
+	echo "Run with cloud completed."
 
 # Docker Compose
 up:
