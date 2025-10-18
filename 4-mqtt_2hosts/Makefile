@@ -16,6 +16,13 @@ PUB_FILE = $(PUB_CAP_DIR)/172.28.1.1.pcap
 CLUC_AVG_LATENCY_SCRIPT = ./cluc_avg_latency.sh
 CLUC_TOTAL_BYTES_SCRIPT = ./cluc_total_bytes.sh
 
+chmod:
+	chmod +x ${CLUC_AVG_LATENCY_SCRIPT}
+	chmod +x ${CLUC_TOTAL_BYTES_SCRIPT}
+
+sleep:
+	sleep 2
+
 
 publish:
 	$(DOCKER_EXEC) mqtt_publisher bash publish.sh
@@ -32,6 +39,10 @@ cluc_total_bytes/subscriber:
 cluc_total_bytes/publisher:
 	$(CLUC_TOTAL_BYTES_SCRIPT) $(PUB_CAP_DIR)
 
+run/with_cloud: publish chmod sleep stop cluc_avg_latency cluc_total_bytes/subscriber cluc_total_bytes/publisher
+	@echo "Run with cloud completed."
+
+# Docker Compose
 up:
 	$(DOCKER_COMPOSE_UP)
 up/build:
