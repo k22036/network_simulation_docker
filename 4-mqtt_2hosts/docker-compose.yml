@@ -49,8 +49,16 @@ services:
       - NET_ADMIN
       - NET_RAW
 
+  traffic-control:
+    build: ./traffic-control
+    container_name: traffic_control_setup
+    network_mode: "host"
+    privileged: true
+    restart: "no"
+
 networks:
   mqtt_net:
+    name: mqtt_net
     driver: bridge
     ipam:
       config:
