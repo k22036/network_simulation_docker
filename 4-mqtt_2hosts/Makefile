@@ -5,16 +5,20 @@ DOCKER_EXEC = docker exec -it
 
 # tshark
 TSHARK_R = tshark -r
-TSHARK_OPTIONS = -q -z conv,tcp
+TSHARK_COLLECT_OPTIONS = -q -z conv,tcp
+TSHARK_SHOW_OPTIONS = -T fields -e frame.time -e ip.src -e ip.dst -e _ws.col.Info
 # pcap directory
 SUB_CAP_DIR = ./subscriber/output/tcp_dump
 PUB_CAP_DIR = ./publisher/output/tcp_dump
 # pcap files
 SUB_FILE = $(SUB_CAP_DIR)/172.28.1.2.pcap
 PUB_FILE = $(PUB_CAP_DIR)/172.28.1.1.pcap
+BROKER_FILE = ./broker/log/capture.pcap
 
 CLUC_AVG_LATENCY_SCRIPT = ./cluc_avg_latency.sh
 CLUC_TOTAL_BYTES_SCRIPT = ./cluc_total_bytes.sh
+
+APPLY_DELAY_SCRIPT = ./apply_delay.sh
 
 chmod:
 	chmod +x ${CLUC_AVG_LATENCY_SCRIPT}
@@ -23,14 +27,29 @@ chmod:
 sleep:
 	sleep 2
 
+apply_delay:
+	chmod +x ${APPLY_DELAY_SCRIPT}
+	sudo ${APPLY_DELAY_SCRIPT}
+
 
 publish:
 	$(DOCKER_EXEC) mqtt_publisher bash publish.sh
+
+capture/broker:
+	chmod +x ./broker/capture.sh
+	./broker/capture.sh
 
 collect_pcks/subscriber:
 	$(TSHARK_R) $(SUB_FILE) $(TSHARK_OPTIONS)
 collect_pcks/publisher:
 	$(TSHARK_R) $(PUB_FILE) $(TSHARK_OPTIONS)
+
+show_pcks/subscriber:
+	$(TSHARK_R) $(SUB_FILE) $(TSHARK_SHOW_OPTIONS)
+show_pcks/publisher:
+	$(TSHARK_R) $(PUB_FILE) $(TSHARK_SHOW_OPTIONS)
+show_pcks/broker:
+	$(TSHARK_R) $(BROKER_FILE) $(TSHARK_SHOW_OPTIONS)
 
 cluc_avg_latency:
 	$(CLUC_AVG_LATENCY_SCRIPT)
@@ -41,6 +60,8 @@ cluc_total_bytes/publisher:
 
 run/with_cloud:
 	set -e; \
+	$(MAKE) apply_delay; \
+	$(MAKE) sleep; \
 	$(MAKE) publish; \
 	$(MAKE) chmod; \
 	$(MAKE) sleep; \
