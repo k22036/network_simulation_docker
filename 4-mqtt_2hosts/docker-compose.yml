@@ -42,6 +42,7 @@ services:
     volumes:
       - ./subscriber/output/latency_log:/app/output/latency_log
       - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+      - ./subscriber/output/debug:/app/output/debug
     networks:
       mqtt_net:
         ipv4_address: 172.28.1.2

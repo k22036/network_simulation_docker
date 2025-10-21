@@ -1,7 +1,9 @@
 # Docker
 DOCKER_COMPOSE = docker compose
 DOCKER_COMPOSE_UP = $(DOCKER_COMPOSE) up -d
-DOCKER_EXEC = docker exec -it
+DOCKER_EXEC = docker exec -i
+DOCKER_EXEC_PUB = $(DOCKER_EXEC) mqtt_publisher
+DOCKER_EXEC_SUB = $(DOCKER_EXEC) mqtt_subscriber
 
 # tshark
 TSHARK_R = tshark -r
@@ -9,9 +11,11 @@ TSHARK_COLLECT_OPTIONS = -q -z conv,tcp
 TSHARK_SHOW_OPTIONS = -T fields -e frame.time -e ip.src -e ip.dst -e _ws.col.Info
 # pcap directory
 SUB_CAP_DIR = ./subscriber/output/tcp_dump
+SUB_DEBUG_DIR = ./subscriber/output/debug
 PUB_CAP_DIR = ./publisher/output/tcp_dump
 # pcap files
 SUB_FILE = $(SUB_CAP_DIR)/172.28.1.2.pcap
+SUB_DEBUG_FILE = $(SUB_DEBUG_DIR)/172.28.1.2.pcap
 PUB_FILE = $(PUB_CAP_DIR)/172.28.1.1.pcap
 BROKER_FILE = ./broker/log/capture.pcap
 
@@ -33,19 +37,21 @@ apply_delay:
 
 
 publish:
-	$(DOCKER_EXEC) mqtt_publisher bash publish.sh
+	$(DOCKER_EXEC_PUB) bash publish.sh
 
 capture/broker:
 	chmod +x ./broker/capture.sh
 	./broker/capture.sh
 
 collect_pcks/subscriber:
-	$(TSHARK_R) $(SUB_FILE) $(TSHARK_OPTIONS)
+	$(TSHARK_R) $(SUB_FILE) $(TSHARK_COLLECT_OPTIONS)
 collect_pcks/publisher:
-	$(TSHARK_R) $(PUB_FILE) $(TSHARK_OPTIONS)
+	$(TSHARK_R) $(PUB_FILE) $(TSHARK_COLLECT_OPTIONS)
 
 show_pcks/subscriber:
 	$(TSHARK_R) $(SUB_FILE) $(TSHARK_SHOW_OPTIONS)
+show_pcks/subscriber/debug:
+	$(TSHARK_R) $(SUB_DEBUG_FILE) $(TSHARK_SHOW_OPTIONS)
 show_pcks/publisher:
 	$(TSHARK_R) $(PUB_FILE) $(TSHARK_SHOW_OPTIONS)
 show_pcks/broker:
@@ -70,6 +76,15 @@ run/with_cloud:
 	$(MAKE) cluc_total_bytes/subscriber; \
 	$(MAKE) cluc_total_bytes/publisher; \
 	echo "Run with cloud completed."
+
+# Debugging
+send_tcp:
+	set -e; \
+	$(MAKE) apply_delay; \
+	$(MAKE) sleep; \
+	$(DOCKER_EXEC_SUB) bash receive_tcp.sh & \
+	$(MAKE) sleep; \
+	$(DOCKER_EXEC_PUB) bash send_tcp.sh
 
 # Docker Compose
 up:

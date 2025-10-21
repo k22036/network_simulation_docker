@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y tcpdump iproute2
 
 COPY . .
 
-RUN chmod +x subscribe.sh && chmod +x delay.sh
+RUN chmod +x subscribe.sh && chmod +x delay.sh && \
+    chmod +x receive_tcp.sh
 
 CMD ["sh", "-c", "set -e; ./delay.sh && ./subscribe.sh"]
