@@ -1,6 +1,9 @@
 # Docker
 DOCKER_COMPOSE = docker compose
 DOCKER_COMPOSE_UP = $(DOCKER_COMPOSE) up -d
+DOCKER_COMPOSE_WITH_CLOUD = $(DOCKER_COMPOSE) -f docker-compose-with-cloud.yml
+DOCKER_COMPOSE_UP_WITH_CLOUD = $(DOCKER_COMPOSE_WITH_CLOUD) up -d
+
 DOCKER_EXEC = docker exec -i
 DOCKER_EXEC_PUB = $(DOCKER_EXEC) mqtt_publisher
 DOCKER_EXEC_SUB = $(DOCKER_EXEC) mqtt_subscriber
@@ -71,7 +74,7 @@ run/with_cloud:
 	$(MAKE) publish; \
 	$(MAKE) chmod; \
 	$(MAKE) sleep; \
-	$(MAKE) stop; \
+	$(MAKE) stop/with_cloud; \
 	$(MAKE) cluc_avg_latency; \
 	$(MAKE) cluc_total_bytes/subscriber; \
 	$(MAKE) cluc_total_bytes/publisher; \
@@ -89,9 +92,20 @@ send_tcp:
 # Docker Compose
 up:
 	$(DOCKER_COMPOSE_UP)
+up/with_cloud:
+	$(DOCKER_COMPOSE_UP_WITH_CLOUD)
+
 up/build:
 	$(DOCKER_COMPOSE_UP) --build
+up/build/with_cloud:
+	$(DOCKER_COMPOSE_UP_WITH_CLOUD) --build
+
 stop:
 	$(DOCKER_COMPOSE) stop
+stop/with_cloud:
+	$(DOCKER_COMPOSE_WITH_CLOUD) stop
+
 down:
 	$(DOCKER_COMPOSE) down
+down/with_cloud:
+	$(DOCKER_COMPOSE_WITH_CLOUD) down
