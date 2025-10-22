@@ -40,7 +40,8 @@ apply_delay:
 
 
 publish:
-	$(DOCKER_EXEC_PUB) bash publish.sh
+	chmod +x ./publish.sh
+	./publish.sh
 
 capture/broker:
 	chmod +x ./broker/capture.sh
