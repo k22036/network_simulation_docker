@@ -11,9 +11,9 @@ services:
     networks:
       mqtt_net:
         ipv4_address: 172.28.0.2
-  publisher:
+  publisher_1:
     build: ./publisher
-    container_name: mqtt_publisher
+    container_name: mqtt_publisher_1
     environment:
       MQTT_BROKER_HOST: 172.28.0.2
       MQTT_BROKER_PORT: '1883'
@@ -28,9 +28,9 @@ services:
     cap_add:
     - NET_ADMIN
     - NET_RAW
-  subscriber:
+  subscriber_1:
     build: ./subscriber
-    container_name: mqtt_subscriber
+    container_name: mqtt_subscriber_1
     environment:
       MQTT_BROKER_HOST: 172.28.0.2
       MQTT_BROKER_PORT: '1883'
@@ -44,6 +44,1770 @@ services:
     networks:
       mqtt_net:
         ipv4_address: 172.28.2.1
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_2:
+    build: ./publisher
+    container_name: mqtt_publisher_2
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.2
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.2
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_2:
+    build: ./subscriber
+    container_name: mqtt_subscriber_2
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.2
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.2
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_3:
+    build: ./publisher
+    container_name: mqtt_publisher_3
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.3
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.3
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_3:
+    build: ./subscriber
+    container_name: mqtt_subscriber_3
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.3
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.3
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_4:
+    build: ./publisher
+    container_name: mqtt_publisher_4
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.4
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.4
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_4:
+    build: ./subscriber
+    container_name: mqtt_subscriber_4
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.4
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.4
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_5:
+    build: ./publisher
+    container_name: mqtt_publisher_5
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.5
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.5
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_5:
+    build: ./subscriber
+    container_name: mqtt_subscriber_5
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.5
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.5
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_6:
+    build: ./publisher
+    container_name: mqtt_publisher_6
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.6
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.6
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_6:
+    build: ./subscriber
+    container_name: mqtt_subscriber_6
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.6
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.6
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_7:
+    build: ./publisher
+    container_name: mqtt_publisher_7
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.7
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.7
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_7:
+    build: ./subscriber
+    container_name: mqtt_subscriber_7
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.7
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.7
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_8:
+    build: ./publisher
+    container_name: mqtt_publisher_8
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.8
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.8
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_8:
+    build: ./subscriber
+    container_name: mqtt_subscriber_8
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.8
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.8
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_9:
+    build: ./publisher
+    container_name: mqtt_publisher_9
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.9
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.9
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_9:
+    build: ./subscriber
+    container_name: mqtt_subscriber_9
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.9
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.9
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_10:
+    build: ./publisher
+    container_name: mqtt_publisher_10
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.10
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.10
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_10:
+    build: ./subscriber
+    container_name: mqtt_subscriber_10
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.10
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.10
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_11:
+    build: ./publisher
+    container_name: mqtt_publisher_11
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.11
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.11
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_11:
+    build: ./subscriber
+    container_name: mqtt_subscriber_11
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.11
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.11
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_12:
+    build: ./publisher
+    container_name: mqtt_publisher_12
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.12
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.12
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_12:
+    build: ./subscriber
+    container_name: mqtt_subscriber_12
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.12
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.12
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_13:
+    build: ./publisher
+    container_name: mqtt_publisher_13
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.13
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.13
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_13:
+    build: ./subscriber
+    container_name: mqtt_subscriber_13
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.13
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.13
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_14:
+    build: ./publisher
+    container_name: mqtt_publisher_14
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.14
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.14
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_14:
+    build: ./subscriber
+    container_name: mqtt_subscriber_14
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.14
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.14
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_15:
+    build: ./publisher
+    container_name: mqtt_publisher_15
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.15
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.15
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_15:
+    build: ./subscriber
+    container_name: mqtt_subscriber_15
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.15
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.15
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_16:
+    build: ./publisher
+    container_name: mqtt_publisher_16
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.16
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.16
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_16:
+    build: ./subscriber
+    container_name: mqtt_subscriber_16
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.16
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.16
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_17:
+    build: ./publisher
+    container_name: mqtt_publisher_17
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.17
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.17
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_17:
+    build: ./subscriber
+    container_name: mqtt_subscriber_17
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.17
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.17
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_18:
+    build: ./publisher
+    container_name: mqtt_publisher_18
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.18
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.18
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_18:
+    build: ./subscriber
+    container_name: mqtt_subscriber_18
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.18
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.18
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_19:
+    build: ./publisher
+    container_name: mqtt_publisher_19
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.19
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.19
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_19:
+    build: ./subscriber
+    container_name: mqtt_subscriber_19
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.19
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.19
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_20:
+    build: ./publisher
+    container_name: mqtt_publisher_20
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.20
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.20
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_20:
+    build: ./subscriber
+    container_name: mqtt_subscriber_20
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.20
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.20
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_21:
+    build: ./publisher
+    container_name: mqtt_publisher_21
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.21
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.21
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_21:
+    build: ./subscriber
+    container_name: mqtt_subscriber_21
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.21
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.21
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_22:
+    build: ./publisher
+    container_name: mqtt_publisher_22
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.22
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.22
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_22:
+    build: ./subscriber
+    container_name: mqtt_subscriber_22
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.22
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.22
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_23:
+    build: ./publisher
+    container_name: mqtt_publisher_23
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.23
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.23
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_23:
+    build: ./subscriber
+    container_name: mqtt_subscriber_23
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.23
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.23
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_24:
+    build: ./publisher
+    container_name: mqtt_publisher_24
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.24
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.24
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_24:
+    build: ./subscriber
+    container_name: mqtt_subscriber_24
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.24
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.24
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_25:
+    build: ./publisher
+    container_name: mqtt_publisher_25
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.25
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.25
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_25:
+    build: ./subscriber
+    container_name: mqtt_subscriber_25
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.25
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.25
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_26:
+    build: ./publisher
+    container_name: mqtt_publisher_26
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.26
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.26
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_26:
+    build: ./subscriber
+    container_name: mqtt_subscriber_26
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.26
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.26
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_27:
+    build: ./publisher
+    container_name: mqtt_publisher_27
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.27
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.27
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_27:
+    build: ./subscriber
+    container_name: mqtt_subscriber_27
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.27
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.27
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_28:
+    build: ./publisher
+    container_name: mqtt_publisher_28
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.28
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.28
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_28:
+    build: ./subscriber
+    container_name: mqtt_subscriber_28
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.28
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.28
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_29:
+    build: ./publisher
+    container_name: mqtt_publisher_29
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.29
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.29
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_29:
+    build: ./subscriber
+    container_name: mqtt_subscriber_29
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.29
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.29
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_30:
+    build: ./publisher
+    container_name: mqtt_publisher_30
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.30
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.30
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_30:
+    build: ./subscriber
+    container_name: mqtt_subscriber_30
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.30
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.30
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_31:
+    build: ./publisher
+    container_name: mqtt_publisher_31
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.31
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.31
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_31:
+    build: ./subscriber
+    container_name: mqtt_subscriber_31
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.31
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.31
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_32:
+    build: ./publisher
+    container_name: mqtt_publisher_32
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.32
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.32
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_32:
+    build: ./subscriber
+    container_name: mqtt_subscriber_32
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.32
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.32
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_33:
+    build: ./publisher
+    container_name: mqtt_publisher_33
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.33
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.33
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_33:
+    build: ./subscriber
+    container_name: mqtt_subscriber_33
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.33
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.33
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_34:
+    build: ./publisher
+    container_name: mqtt_publisher_34
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.34
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.34
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_34:
+    build: ./subscriber
+    container_name: mqtt_subscriber_34
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.34
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.34
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_35:
+    build: ./publisher
+    container_name: mqtt_publisher_35
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.35
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.35
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_35:
+    build: ./subscriber
+    container_name: mqtt_subscriber_35
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.35
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.35
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_36:
+    build: ./publisher
+    container_name: mqtt_publisher_36
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.36
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.36
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_36:
+    build: ./subscriber
+    container_name: mqtt_subscriber_36
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.36
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.36
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_37:
+    build: ./publisher
+    container_name: mqtt_publisher_37
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.37
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.37
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_37:
+    build: ./subscriber
+    container_name: mqtt_subscriber_37
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.37
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.37
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_38:
+    build: ./publisher
+    container_name: mqtt_publisher_38
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.38
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.38
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_38:
+    build: ./subscriber
+    container_name: mqtt_subscriber_38
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.38
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.38
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_39:
+    build: ./publisher
+    container_name: mqtt_publisher_39
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.39
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.39
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_39:
+    build: ./subscriber
+    container_name: mqtt_subscriber_39
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.39
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.39
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_40:
+    build: ./publisher
+    container_name: mqtt_publisher_40
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.40
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.40
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_40:
+    build: ./subscriber
+    container_name: mqtt_subscriber_40
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.40
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.40
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_41:
+    build: ./publisher
+    container_name: mqtt_publisher_41
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.41
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.41
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_41:
+    build: ./subscriber
+    container_name: mqtt_subscriber_41
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.41
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.41
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_42:
+    build: ./publisher
+    container_name: mqtt_publisher_42
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.42
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.42
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_42:
+    build: ./subscriber
+    container_name: mqtt_subscriber_42
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.42
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.42
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_43:
+    build: ./publisher
+    container_name: mqtt_publisher_43
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.43
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.43
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_43:
+    build: ./subscriber
+    container_name: mqtt_subscriber_43
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.43
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.43
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_44:
+    build: ./publisher
+    container_name: mqtt_publisher_44
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.44
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.44
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_44:
+    build: ./subscriber
+    container_name: mqtt_subscriber_44
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.44
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.44
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_45:
+    build: ./publisher
+    container_name: mqtt_publisher_45
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.45
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.45
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_45:
+    build: ./subscriber
+    container_name: mqtt_subscriber_45
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.45
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.45
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_46:
+    build: ./publisher
+    container_name: mqtt_publisher_46
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.46
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.46
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_46:
+    build: ./subscriber
+    container_name: mqtt_subscriber_46
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.46
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.46
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_47:
+    build: ./publisher
+    container_name: mqtt_publisher_47
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.47
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.47
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_47:
+    build: ./subscriber
+    container_name: mqtt_subscriber_47
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.47
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.47
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_48:
+    build: ./publisher
+    container_name: mqtt_publisher_48
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.48
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.48
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_48:
+    build: ./subscriber
+    container_name: mqtt_subscriber_48
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.48
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.48
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_49:
+    build: ./publisher
+    container_name: mqtt_publisher_49
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.49
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.49
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_49:
+    build: ./subscriber
+    container_name: mqtt_subscriber_49
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.49
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.49
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  publisher_50:
+    build: ./publisher
+    container_name: mqtt_publisher_50
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.50
+    depends_on:
+    - broker
+    volumes:
+    - ./publisher/output/tcp_dump:/app/output/tcp_dump
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.1.50
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+  subscriber_50:
+    build: ./subscriber
+    container_name: mqtt_subscriber_50
+    environment:
+      MQTT_BROKER_HOST: 172.28.0.2
+      MQTT_BROKER_PORT: '1883'
+      MQTT_TOPIC: 172.28.2.50
+    depends_on:
+    - broker
+    volumes:
+    - ./subscriber/output/latency_log:/app/output/latency_log
+    - ./subscriber/output/tcp_dump:/app/output/tcp_dump
+    - ./subscriber/output/debug:/app/output/debug
+    networks:
+      mqtt_net:
+        ipv4_address: 172.28.2.50
     cap_add:
     - NET_ADMIN
     - NET_RAW
