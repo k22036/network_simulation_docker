@@ -52,4 +52,5 @@ do
 done
 
 echo "----------------------------------------"
-echo "Total Bytes Across All Files: ${total_bytes} bytes"
+echo "target directory: ${CAPTURE_DIR}"
+printf '\e[1;32mTotal Bytes Across All Files: %s bytes\e[0m\n' "${total_bytes}"
