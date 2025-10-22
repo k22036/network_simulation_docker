@@ -1,7 +1,7 @@
 # Docker
 DOCKER_COMPOSE = docker compose
 DOCKER_COMPOSE_UP = $(DOCKER_COMPOSE) up -d
-DOCKER_COMPOSE_WITH_CLOUD = $(DOCKER_COMPOSE) -f docker-compose-with-cloud.yml
+DOCKER_COMPOSE_WITH_CLOUD = $(DOCKER_COMPOSE) -f docker-compose.with_cloud.yml
 DOCKER_COMPOSE_UP_WITH_CLOUD = $(DOCKER_COMPOSE_WITH_CLOUD) up -d
 
 DOCKER_EXEC = docker exec -i
