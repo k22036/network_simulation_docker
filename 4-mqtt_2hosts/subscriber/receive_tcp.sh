@@ -18,6 +18,10 @@ TCPDUMP_PID=$!
 trap 'echo "Stopping tcpdump (PID: ${TCPDUMP_PID})..."; kill ${TCPDUMP_PID}' SIGINT SIGTERM
 
 sleep 2
-python receive_tcp.py
+echo "Starting nc to receive messages on port ${CAPTURE_PORT}..."
+# python
+# python receive_tcp.py
+# nc
+nc -l 0.0.0.0 5000 -q 1
 sleep 2
 kill ${TCPDUMP_PID}
