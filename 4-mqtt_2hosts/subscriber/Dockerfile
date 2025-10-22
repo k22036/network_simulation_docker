@@ -3,7 +3,7 @@ FROM python:3.14-slim
 WORKDIR /app
 
 RUN pip install paho-mqtt
-RUN apt-get update && apt-get install -y tcpdump iproute2 netcat-openbsd
+RUN apt-get update && apt-get install -y tcpdump iproute2 netcat-openbsd mosquitto
 
 COPY . .
 

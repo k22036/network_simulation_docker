@@ -41,7 +41,8 @@ apply_delay:
 
 publish:
 	chmod +x ./publish.sh
-	./publish.sh
+	docker exec -it mqtt_publisher bash publish.sh
+# 	./publish.sh
 
 capture/broker:
 	chmod +x ./broker/capture.sh
@@ -80,6 +81,19 @@ run/with_cloud:
 	$(MAKE) cluc_total_bytes/subscriber; \
 	$(MAKE) cluc_total_bytes/publisher; \
 	echo "Run with cloud completed."
+
+run/without_cloud:
+	set -e; \
+	$(MAKE) apply_delay; \
+	$(MAKE) sleep; \
+	$(MAKE) publish; \
+	$(MAKE) chmod; \
+	$(MAKE) sleep; \
+	$(MAKE) stop; \
+	$(MAKE) cluc_avg_latency; \
+	$(MAKE) cluc_total_bytes/subscriber; \
+	$(MAKE) cluc_total_bytes/publisher; \
+	echo "Run without cloud completed."
 
 # Debugging
 send_tcp:

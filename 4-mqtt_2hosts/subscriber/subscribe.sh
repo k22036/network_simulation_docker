@@ -8,8 +8,15 @@ OUTPUT_FILE="/app/output/tcp_dump/${IP}.pcap"
 CAPTURE_PORT=1883
 LATENCY_LOG_DIR="/app/output/latency_log"
 LATENCY_LOG_FILE="${LATENCY_LOG_DIR}/${IP}.txt"
+# クラウドを経由するか
+# VIA_CLOUD=false
 
 # --- スクリプト本体 ---
+if [ "$VIA_CLOUD" = false ]; then
+    echo "Starting mosquitto broker..."
+    mosquitto -c config/mosquitto.conf &
+fi
+
 echo "Starting packet capture to ${OUTPUT_FILE}..."
 
 # tcpdumpをバックグラウンドで実行 (&)

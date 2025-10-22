@@ -16,7 +16,7 @@ services:
     build: ./publisher
     container_name: mqtt_publisher
     environment:
-      - MQTT_BROKER_HOST=172.28.0.2
+      - MQTT_BROKER_HOST=172.28.2.1
       - MQTT_BROKER_PORT=1883
       - MQTT_TOPIC=172.28.2.1
     depends_on:
@@ -34,9 +34,10 @@ services:
     build: ./subscriber
     container_name: mqtt_subscriber
     environment:
-      - MQTT_BROKER_HOST=172.28.0.2
+      - MQTT_BROKER_HOST=172.28.2.1
       - MQTT_BROKER_PORT=1883
       - MQTT_TOPIC=172.28.2.1
+      - VIA_CLOUD=false
     depends_on:
       - broker
     volumes:
