@@ -18,7 +18,7 @@ services:
     environment:
       - MQTT_BROKER_HOST=172.28.0.2
       - MQTT_BROKER_PORT=1883
-      - MQTT_TOPIC=test/topic
+      - MQTT_TOPIC=172.28.2.1
     depends_on:
       - broker
     volumes:
@@ -36,7 +36,7 @@ services:
     environment:
       - MQTT_BROKER_HOST=172.28.0.2
       - MQTT_BROKER_PORT=1883
-      - MQTT_TOPIC=test/topic
+      - MQTT_TOPIC=172.28.2.1
     depends_on:
       - broker
     volumes:
@@ -45,7 +45,7 @@ services:
       - ./subscriber/output/debug:/app/output/debug
     networks:
       mqtt_net:
-        ipv4_address: 172.28.1.2
+        ipv4_address: 172.28.2.1
     cap_add:
       - NET_ADMIN
       - NET_RAW

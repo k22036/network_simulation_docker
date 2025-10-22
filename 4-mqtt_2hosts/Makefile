@@ -14,8 +14,8 @@ SUB_CAP_DIR = ./subscriber/output/tcp_dump
 SUB_DEBUG_DIR = ./subscriber/output/debug
 PUB_CAP_DIR = ./publisher/output/tcp_dump
 # pcap files
-SUB_FILE = $(SUB_CAP_DIR)/172.28.1.2.pcap
-SUB_DEBUG_FILE = $(SUB_DEBUG_DIR)/172.28.1.2.pcap
+SUB_FILE = $(SUB_CAP_DIR)/172.28.2.1.pcap
+SUB_DEBUG_FILE = $(SUB_DEBUG_DIR)/172.28.2.1.pcap
 PUB_FILE = $(PUB_CAP_DIR)/172.28.1.1.pcap
 BROKER_FILE = ./broker/log/capture.pcap
 
