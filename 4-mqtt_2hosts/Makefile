@@ -41,8 +41,7 @@ apply_delay:
 
 publish:
 	chmod +x ./publish.sh
-	docker exec -it mqtt_publisher bash publish.sh
-# 	./publish.sh
+	./publish.sh
 
 capture/broker:
 	chmod +x ./broker/capture.sh
