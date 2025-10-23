@@ -3,6 +3,8 @@ DOCKER_COMPOSE = docker compose
 DOCKER_COMPOSE_UP = $(DOCKER_COMPOSE) up -d
 DOCKER_COMPOSE_WITH_CLOUD = $(DOCKER_COMPOSE) -f docker-compose.with_cloud.yml
 DOCKER_COMPOSE_UP_WITH_CLOUD = $(DOCKER_COMPOSE_WITH_CLOUD) up -d
+DOCKER_COMPOSE_WITHOUT_CLOUD = $(DOCKER_COMPOSE) -f docker-compose.without_cloud.yml
+DOCKER_COMPOSE_UP_WITHOUT_CLOUD = $(DOCKER_COMPOSE_WITHOUT_CLOUD) up -d
 
 DOCKER_EXEC = docker exec -i
 DOCKER_EXEC_PUB = $(DOCKER_EXEC) mqtt_publisher
@@ -108,18 +110,26 @@ up:
 	$(DOCKER_COMPOSE_UP)
 up/with_cloud:
 	$(DOCKER_COMPOSE_UP_WITH_CLOUD)
+up/without_cloud:
+	$(DOCKER_COMPOSE_UP_WITHOUT_CLOUD)
 
 up/build:
 	$(DOCKER_COMPOSE_UP) --build
 up/build/with_cloud:
 	$(DOCKER_COMPOSE_UP_WITH_CLOUD) --build
+up/build/without_cloud:
+	$(DOCKER_COMPOSE_UP_WITHOUT_CLOUD) --build
 
 stop:
 	$(DOCKER_COMPOSE) stop
 stop/with_cloud:
 	$(DOCKER_COMPOSE_WITH_CLOUD) stop
+stop/without_cloud:
+	$(DOCKER_COMPOSE_WITHOUT_CLOUD) stop
 
 down:
 	$(DOCKER_COMPOSE) down
 down/with_cloud:
 	$(DOCKER_COMPOSE_WITH_CLOUD) down
+down/without_cloud:
+	$(DOCKER_COMPOSE_WITHOUT_CLOUD) down

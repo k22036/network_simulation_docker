@@ -6,8 +6,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.1
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.1
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -24,8 +22,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.1
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -43,8 +39,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.2
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.2
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -61,8 +55,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.2
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -80,8 +72,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.3
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.3
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -98,8 +88,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.3
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -117,8 +105,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.4
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.4
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -135,8 +121,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.4
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -154,8 +138,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.5
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.5
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -172,8 +154,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.5
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -191,8 +171,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.6
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.6
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -209,8 +187,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.6
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -228,8 +204,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.7
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.7
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -246,8 +220,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.7
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -265,8 +237,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.8
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.8
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -283,8 +253,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.8
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -302,8 +270,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.9
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.9
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -320,8 +286,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.9
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -339,8 +303,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.10
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.10
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -357,8 +319,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.10
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -376,8 +336,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.11
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.11
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -394,8 +352,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.11
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -413,8 +369,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.12
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.12
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -431,8 +385,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.12
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -450,8 +402,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.13
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.13
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -468,8 +418,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.13
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -487,8 +435,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.14
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.14
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -505,8 +451,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.14
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -524,8 +468,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.15
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.15
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -542,8 +484,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.15
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -561,8 +501,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.16
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.16
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -579,8 +517,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.16
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -598,8 +534,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.17
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.17
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -616,8 +550,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.17
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -635,8 +567,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.18
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.18
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -653,8 +583,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.18
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -672,8 +600,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.19
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.19
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -690,8 +616,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.19
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -709,8 +633,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.20
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.20
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -727,8 +649,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.20
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -746,8 +666,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.21
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.21
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -764,8 +682,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.21
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -783,8 +699,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.22
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.22
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -801,8 +715,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.22
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -820,8 +732,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.23
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.23
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -838,8 +748,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.23
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -857,8 +765,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.24
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.24
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -875,8 +781,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.24
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -894,8 +798,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.25
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.25
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -912,8 +814,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.25
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -931,8 +831,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.26
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.26
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -949,8 +847,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.26
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -968,8 +864,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.27
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.27
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -986,8 +880,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.27
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1005,8 +897,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.28
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.28
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1023,8 +913,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.28
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1042,8 +930,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.29
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.29
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1060,8 +946,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.29
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1079,8 +963,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.30
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.30
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1097,8 +979,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.30
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1116,8 +996,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.31
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.31
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1134,8 +1012,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.31
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1153,8 +1029,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.32
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.32
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1171,8 +1045,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.32
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1190,8 +1062,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.33
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.33
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1208,8 +1078,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.33
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1227,8 +1095,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.34
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.34
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1245,8 +1111,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.34
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1264,8 +1128,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.35
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.35
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1282,8 +1144,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.35
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1301,8 +1161,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.36
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.36
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1319,8 +1177,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.36
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1338,8 +1194,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.37
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.37
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1356,8 +1210,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.37
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1375,8 +1227,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.38
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.38
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1393,8 +1243,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.38
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1412,8 +1260,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.39
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.39
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1430,8 +1276,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.39
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1449,8 +1293,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.40
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.40
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1467,8 +1309,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.40
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1486,8 +1326,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.41
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.41
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1504,8 +1342,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.41
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1523,8 +1359,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.42
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.42
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1541,8 +1375,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.42
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1560,8 +1392,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.43
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.43
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1578,8 +1408,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.43
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1597,8 +1425,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.44
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.44
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1615,8 +1441,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.44
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1634,8 +1458,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.45
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.45
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1652,8 +1474,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.45
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1671,8 +1491,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.46
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.46
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1689,8 +1507,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.46
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1708,8 +1524,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.47
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.47
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1726,8 +1540,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.47
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1745,8 +1557,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.48
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.48
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1763,8 +1573,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.48
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1782,8 +1590,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.49
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.49
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1800,8 +1606,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.49
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump
@@ -1819,8 +1623,6 @@ services:
       MQTT_BROKER_HOST: 172.28.2.50
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.50
-    depends_on:
-    - broker
     volumes:
     - ./publisher/output/tcp_dump:/app/output/tcp_dump
     networks:
@@ -1837,8 +1639,6 @@ services:
       MQTT_BROKER_PORT: '1883'
       MQTT_TOPIC: 172.28.2.50
       VIA_CLOUD: false
-    depends_on:
-    - broker
     volumes:
     - ./subscriber/output/latency_log:/app/output/latency_log
     - ./subscriber/output/tcp_dump:/app/output/tcp_dump

@@ -61,9 +61,6 @@ def make_publisher(own_ip: str, target_ip: str):
                 'MQTT_BROKER_PORT': '1883',
                 'MQTT_TOPIC': target_ip
             },
-            'depends_on': [
-                'broker'
-            ],
             'volumes': [
                 './publisher/output/tcp_dump:/app/output/tcp_dump'
             ],
@@ -100,9 +97,6 @@ def make_subscriber(own_ip: str):
                 'MQTT_TOPIC': own_ip,
                 'VIA_CLOUD': False
             },
-            'depends_on': [
-                'broker'
-            ],
             'volumes': [
                 './subscriber/output/latency_log:/app/output/latency_log',
                 './subscriber/output/tcp_dump:/app/output/tcp_dump',
