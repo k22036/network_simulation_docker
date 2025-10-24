@@ -90,7 +90,7 @@ run/without_cloud:
 	$(MAKE) publish; \
 	$(MAKE) chmod; \
 	$(MAKE) sleep; \
-	$(MAKE) stop; \
+	$(MAKE) stop/without_cloud; \
 	$(MAKE) cluc_avg_latency; \
 	$(MAKE) cluc_total_bytes/subscriber; \
 	$(MAKE) cluc_total_bytes/publisher; \
